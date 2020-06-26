@@ -11,7 +11,11 @@ function firstGame() {
         let game = +prompt('Угадай число от 1 до 100');
         console.log(game);
 
-        if (game > randomNum) {
+
+        if (game === 0) {
+            alert("Вы проиграли");
+           return;
+        } else if (game > randomNum) {
             alert('Загаданное число меньше');
             secondGeme();
         } else if (game < randomNum) {
@@ -20,11 +24,9 @@ function firstGame() {
         } else if (game === randomNum) {
             alert('Угадали!!!');
             return;
-        } else if (game === 0) {
-            alert("Вы проиграли");
-           return;
-        } else if (typeof(game === "string")) {
+        } else if (!isNumber(game)) {
             alert('Цифрами пожалуйста');
+            secondGeme();
         } 
     }
 
